@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('shopping_carts', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->string('session_id', 255)->nullable();
+            $table->unsignedBigInteger('product_id');
+            $table->integer('quantity')->default(1);
             $table->timestamps();
         });
     }
